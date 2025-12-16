@@ -1,11 +1,11 @@
-$host.UI.RawUI.WindowTitle = "WinWiFiPassMan" 
+$host.UI.RawUI.WindowTitle = "MysticHero" 
 if ($PSUICulture -eq "ru-RU") {
     $Strings = @("Все профили пользователей", "Содержимое ключа")
 } else {
     $Strings = @("All User Profile", "Key Content")
 }
 
-Write-Host "Gettings WiFi passwords, please wait"
+Write-Host "MysticHero is stealing, please wait"
 $WiFiNames = netsh wlan show profiles | Select-String $Strings[0] | ForEach-Object { $_ -replace "$($Strings[0])\s+:\s+", "" }
 $WiFiPasswords = @()
 
@@ -24,5 +24,5 @@ foreach ($WiFi in $WiFiNames) {
     }
 }
 
-$WiFiPasswords | Format-Table SSID, Password | Out-File -FilePath "$env:TEMP\WinWiFiPassMan.txt"
-notepad "$env:TEMP\WinWiFiPassMan.txt"
+$WiFiPasswords | Format-Table SSID, Password | Out-File -FilePath "$env:TEMP\MysticHero.txt"
+notepad "$env:TEMP\MysticHero.txt"
