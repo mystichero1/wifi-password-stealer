@@ -24,5 +24,11 @@ foreach ($WiFi in $WiFiNames) {
     }
 }
 
-$WiFiPasswords | Format-Table SSID, Password | Out-File -FilePath "$env:TEMP\MysticHero.txt"
-notepad "$env:TEMP\MysticHero.txt"
+$WiFiPasswords | Format-Table SSID, Password | # Defines the permanent location on your flash drive (E:\)
+$FlashPath = "E:\MysticHero.txt" 
+
+# Writes the content of your PowerShell pipeline to E:\MysticHero.txt
+Out-File -FilePath $FlashPath 
+
+# Opens the file from the permanent location on the E: drive
+notepad $FlashPath
